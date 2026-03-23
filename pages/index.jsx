@@ -1,4 +1,5 @@
 import { useState, useCallback, useRef } from "react";
+import dynamic from "next/dynamic";
 
 // ── FONTS ────────────────────────────────────────────────────────────────────
 const fontFaceCSS = `
@@ -152,7 +153,7 @@ function ReedKelloggDiagram({ sentence, dark, font }) {
 }
 
 // ── APP ───────────────────────────────────────────────────────────────────────
-export default function App() {
+function App() {
   const [inputText, setInputText]     = useState("");
   const [tokens, setTokens]           = useState(null);
   const [sentences, setSentences]     = useState(null);
@@ -592,4 +593,8 @@ export default function App() {
       )}
     </div>
   );
+</div>
+  );
 }
+
+export default dynamic(() => Promise.resolve(App), { ssr: false });
