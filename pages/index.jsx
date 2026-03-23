@@ -593,8 +593,6 @@ function App() {
       )}
     </div>
   );
-</div>
-  );
 }
 
 export default dynamic(() => Promise.resolve(App), { ssr: false });
